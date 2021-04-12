@@ -1,30 +1,9 @@
 .app {
   height: 100%;
 }
-.bg-image {
-  bottom: 0;
-  background-image: url("./assets/img/fondosHome/fondo_padel.jpg");
-  /* Add the blur effect */
-  filter: blur(4px);
-  -webkit-filter: blur(4px);
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0px;
-}
 
 .navigation {
   position: absolute;
   top: 0px;
   width: 100%;
 }
-
-/* .login {
-  position: absolute;
-  right: 10%;
-} */

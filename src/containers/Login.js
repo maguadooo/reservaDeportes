@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import { Auth } from "aws-amplify";
 import "./Login.css";
 import { useAppContext } from "../libs/contextLib";
-import { Link } from "react-router-dom";
 
 export default function Login() {
   const { userHasAuthenticated } = useAppContext();
@@ -19,15 +18,11 @@ export default function Login() {
     event.preventDefault();
 
     try {
-      await Auth.signIn(email, password);
+      const user = await Auth.signIn(email, password);
       userHasAuthenticated(true);
     } catch (e) {
       alert(e.message);
     }
-  }
-
-  function handleLogout() {
-    userHasAuthenticated(false);
   }
 
   return (
