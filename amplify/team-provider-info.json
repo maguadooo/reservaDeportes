@@ -1,0 +1,42 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reservadeportes-dev-120700-authRole",
+      "UnauthRoleArn": "arn:aws:iam::801087527177:role/amplify-reservadeportes-dev-120700-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::801087527177:role/amplify-reservadeportes-dev-120700-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-reservadeportes-dev-120700-deployment",
+      "UnauthRoleName": "amplify-reservadeportes-dev-120700-unauthRole",
+      "StackName": "amplify-reservadeportes-dev-120700",
+      "StackId": "arn:aws:cloudformation:us-east-1:801087527177:stack/amplify-reservadeportes-dev-120700/a9f7ef70-9aad-11eb-a324-0ef7f3f34731",
+      "AmplifyAppId": "dycruef6o8g60"
+    },
+    "categories": {
+      "function": {
+        "reservadeportes291b9ad1DefineAuthChallenge": {
+          "deploymentBucketName": "amplify-reservadeportes-dev-120700-deployment",
+          "s3Key": "amplify-builds/reservadeportes291b9ad1DefineAuthChallenge-4858655a47786a44686a-build.zip"
+        },
+        "reservadeportes291b9ad1CreateAuthChallenge": {
+          "deploymentBucketName": "amplify-reservadeportes-dev-120700-deployment",
+          "s3Key": "amplify-builds/reservadeportes291b9ad1CreateAuthChallenge-63775953506c6348486b-build.zip"
+        },
+        "reservadeportes291b9ad1VerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "",
+          "deploymentBucketName": "amplify-reservadeportes-dev-120700-deployment",
+          "s3Key": "amplify-builds/reservadeportes291b9ad1VerifyAuthChallengeResponse-31732f66627455636c43-build.zip"
+        },
+        "reservadeportes291b9ad1CustomMessage": {
+          "REDIRECTURL": "",
+          "EMAILSUBJECT": "",
+          "EMAILMESSAGE": "Bienvenido a padelBooking! Por favor, confirma tu dirección de email para poder utilizar nuestra plataforma de reservas.",
+          "deploymentBucketName": "amplify-reservadeportes-dev-120700-deployment",
+          "s3Key": "amplify-builds/reservadeportes291b9ad1CustomMessage-3878364578566b355874-build.zip"
+        }
+      },
+      "auth": {
+        "reservadeportes291b9ad1": {}
+      }
+    }
+  }
+}

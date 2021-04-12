@@ -1,0 +1,26 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "reservadeportes291b9ad1",
+  "functionName": "reservadeportes291b9ad1CustomMessage",
+  "resourceName": "reservadeportes291b9ad1CustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
+  "triggerDir": "C:\\Users\\Manu\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "reservadeportes291b9ad1CustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "",
+  "EMAILSUBJECT": "",
+  "EMAILMESSAGE": "Bienvenido a padelBooking! Por favor, confirma tu dirección de email para poder utilizar nuestra plataforma de reservas.",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}
