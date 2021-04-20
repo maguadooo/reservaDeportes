@@ -1,0 +1,16 @@
+.rangoBusqueda {
+  margin-left: auto;
+  margin-right: auto;
+}
+ul {
+  display: grid;
+
+  /* grid-template-columns: 300px 300px 300px; */
+  grid-gap: 5px;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+form {
+  display: inline;
+}

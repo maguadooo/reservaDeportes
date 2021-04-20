@@ -24,7 +24,7 @@ Amplify.configure({
   API: {
     endpoints: [
       {
-        name: "reservaDeportes",
+        name: "prod-reservaDeportes-api",
         endpoint: config.apiGateway.URL,
         region: config.apiGateway.REGION,
       },

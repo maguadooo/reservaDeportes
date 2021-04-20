@@ -38,7 +38,7 @@ export default function App() {
 
   return (
     !isAuthenticating && (
-      <div className="App Container py-3">
+      <div className="App">
         <div className="navigation">
           <Navbar collapseOnSelect bg="dark" expand="md" className="mb-3">
             <LinkContainer to="/">
@@ -72,10 +72,13 @@ export default function App() {
             )}
           </Navbar>
         </div>
-
-        <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
-          <Routes />
-        </AppContext.Provider>
+        <div className="Content">
+          <AppContext.Provider
+            value={{ isAuthenticated, userHasAuthenticated }}
+          >
+            <Routes />
+          </AppContext.Provider>
+        </div>
       </div>
     )
   );

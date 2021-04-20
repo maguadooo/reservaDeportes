@@ -4,8 +4,8 @@ const config = {
     BUCKET: "YOUR_S3_UPLOADS_BUCKET_NAME",
   },
   apiGateway: {
-    REGION: "YOUR_API_GATEWAY_REGION",
-    URL: "YOUR_API_GATEWAY_URL",
+    REGION: "us-east-1",
+    URL: "https://n22m5qoapa.execute-api.us-east-1.amazonaws.com/prod/",
   },
   cognito: {
     REGION: "us-east-1",
