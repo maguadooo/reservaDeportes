@@ -11,7 +11,7 @@ export default function Deporte(props) {
         className="tarjeta"
       >
         <h3>{props.deporte}</h3>
-        <img src={props.iconoDeporte} />
+        <img alt={props.deporte} src={props.iconoDeporte} />
       </div>
     </Col>
   );

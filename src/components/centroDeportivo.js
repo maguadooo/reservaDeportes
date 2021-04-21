@@ -13,7 +13,7 @@ export default function CentroDeportivo(props) {
 
   return (
     <li onClick={handleClick}>
-      <img src={centro.fotoPortada}></img>
+      <img alt={centro.nombreCentroDeportivo} src={centro.fotoPortada}></img>
       <h5 className="nombreCentroDeportivo">{centro.nombreCentroDeportivo}</h5>
       <p>Distancia {centro.distanciaABusqueda} km</p>
     </li>

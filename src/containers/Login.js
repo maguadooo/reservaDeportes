@@ -26,11 +26,12 @@ export default function Login(email) {
     setIsLoading(true);
 
     try {
+      // eslint-disable-next-line
       const user = await Auth.signIn(fields.email, fields.password);
       userHasAuthenticated(true);
       history.push("/");
     } catch (e) {
-      if (e.code == "UserNotConfirmedException") {
+      if (e.code === "UserNotConfirmedException") {
         try {
           Auth.resendSignUp(fields.email);
           history.push("/userConfirm/" + fields.email);

@@ -44,7 +44,7 @@ export default function Signup() {
       setIsLoading(false);
       setNewUser(newUser);
     } catch (e) {
-      if (e.code == "UsernameExistsException") {
+      if (e.code === "UsernameExistsException") {
         setIsLoading(false);
         alert(
           "El email " +

@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
-import Amplify, { Auth } from "aws-amplify";
+import Amplify from "aws-amplify";
 import config from "./config";
 import Background from "./background";
 import "bootstrap/dist/css/bootstrap.css";

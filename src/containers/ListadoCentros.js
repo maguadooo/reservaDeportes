@@ -1,11 +1,7 @@
 import "./ListadoCentros.css";
-import { Form, Button, Row, Col, Container } from "react-bootstrap";
-import { useHistory, useParams } from "react-router-dom";
-import react, { useState, useEffect } from "react";
-import { onError } from "../libs/errorLib";
-import { useAppContext } from "../libs/contextLib";
-import LoaderButton from "../components/LoaderButton";
-import { API } from "aws-amplify";
+import { Form, Button, Row, Col } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { useFormFields } from "../libs/hooksLib";
 import {
   coordenadas,
@@ -19,11 +15,11 @@ export default function Deporte(props) {
   const [radio, setRadio] = useState(10);
   const [direccionResultados, setDireccionResultados] = useState("");
   const [listadoCentros, setlistadoCentros] = useState([]);
-  const [coordenadasBusqueda, setcoordenadasBusqueda] = useState({
-    lat: 0,
-    lon: 0,
-  });
-  const [centrosDeportivos, setCentrosDeportivos] = useState([{}]);
+  // const [coordenadasBusqueda, setcoordenadasBusqueda] = useState({
+  //   lat: 0,
+  //   lon: 0,
+  // });
+  // const [centrosDeportivos, setCentrosDeportivos] = useState([{}]);
 
   const [fields, handleFieldChange] = useFormFields({
     direccion: "",
@@ -84,7 +80,6 @@ export default function Deporte(props) {
   useEffect(() => {
     loadCentros().then((value) => {
       setlistadoCentros(value);
-      console.log(listadoCentros);
     });
   }, []);
 
@@ -92,7 +87,6 @@ export default function Deporte(props) {
     event.preventDefault();
     setDireccionResultados("Buscando...");
     coordenadas(fields.direccion).then((value) => {
-      setcoordenadasBusqueda(value);
       if (value != null) {
         for (let i in listadoCentros) {
           listadoCentros[i].distanciaABusqueda = distanciaCoordenadas(
@@ -112,9 +106,9 @@ export default function Deporte(props) {
 
   function renderCentros(centros) {
     if (
-      direccionResultados != "" &&
-      direccionResultados != "Buscando..." &&
-      direccionResultados != "No se ha encontrado"
+      direccionResultados !== "" &&
+      direccionResultados !== "Buscando..." &&
+      direccionResultados !== "No se ha encontrado"
     ) {
       let tarjetas = [];
       for (let i in centros) {
@@ -174,9 +168,9 @@ export default function Deporte(props) {
         </Row>
         <Row>
           <Col sm={6}>
-            {direccionResultados != "" &&
-              direccionResultados != "Buscando..." &&
-              direccionResultados != "No se ha encontrado" && (
+            {direccionResultados !== "" &&
+              direccionResultados !== "Buscando..." &&
+              direccionResultados !== "No se ha encontrado" && (
                 <Form.Group className="rangoBusqueda">
                   <Form.Label>Radio de busqueda: {radio} km</Form.Label>
                   <Form.Control

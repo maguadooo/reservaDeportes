@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Button, Navbar, Nav } from "react-bootstrap";
+import { Button, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Auth } from "aws-amplify";
 import Routes from "./Routes";
@@ -19,6 +19,7 @@ export default function App() {
 
   async function onLoad() {
     try {
+      // eslint-disable-next-line
       const user = await Auth.currentSession();
       userHasAuthenticated(true);
     } catch (e) {

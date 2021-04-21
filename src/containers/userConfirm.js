@@ -19,6 +19,7 @@ export default function UserConfirm() {
     confirmationCode: "",
   });
   const history = useHistory();
+  // eslint-disable-next-line
   const { userHasAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
 
