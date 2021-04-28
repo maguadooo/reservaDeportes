@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ReservaEnCentro.css";
 import { useParams } from "react-router-dom";
-import { API } from "aws-amplify";
+// import { API } from "aws-amplify";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -9,9 +9,7 @@ export default function ReservaEnCentro() {
   //let { uniqueID } = useParams();
   let uniqueID = 2;
   let { deporte } = useParams();
-  const [nombreCentro, setNombreCentro] = useState(
-    "Pistas de Tenis y Padel del Parque del Oeste"
-  );
+  const [nombreCentro, setNombreCentro] = useState("");
   // const [isLoading, setIsLoading] = useState("true");
   const [startDate, setStartDate] = useState(new Date());
 
@@ -23,8 +21,9 @@ export default function ReservaEnCentro() {
   //setNombreCentro(value.nombreCentroDeportivo);
   // setIsLoading(false);
   //});
-
+  setNombreCentro("");
   console.log(startDate);
+  console.log(init);
 
   function renderWeek() {
     return (
