@@ -1,4 +1,5 @@
-.Login Form {
+.form-group,
+.button {
   max-width: 320px;
   margin: auto;
 }

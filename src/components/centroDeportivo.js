@@ -12,10 +12,16 @@ export default function CentroDeportivo(props) {
   }
 
   return (
-    <li onClick={handleClick}>
-      <img alt={centro.nombreCentroDeportivo} src={centro.fotoPortada}></img>
-      <h5 className="nombreCentroDeportivo">{centro.nombreCentroDeportivo}</h5>
-      <p>Distancia {centro.distanciaABusqueda} km</p>
-    </li>
+    <div class="tarjeta-centro-deportivo col-sm-4" onClick={handleClick}>
+      <img
+        class="card-img-top"
+        alt={centro.nombreCentroDeportivo}
+        src={centro.fotoPortada}
+      />
+      <div class="card-body">
+        <h5 class="card-title">{centro.nombreCentroDeportivo}</h5>
+        <p class="card-text">Distancia {centro.distanciaABusqueda} km</p>
+      </div>
+    </div>
   );
 }

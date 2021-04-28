@@ -3,8 +3,7 @@
   margin-right: auto;
 }
 ul {
-  display: grid;
-
+  /* display: grid; */
   /* grid-template-columns: 300px 300px 300px; */
   grid-gap: 5px;
   justify-content: center;
@@ -12,5 +11,6 @@ ul {
 }
 
 form {
-  display: inline;
+  width: 100%;
+  margin: auto;
 }

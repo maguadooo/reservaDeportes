@@ -1,8 +1,6 @@
 import "./ListadoCentros.css";
-import { Form, Button, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useFormFields } from "../libs/hooksLib";
 import {
   coordenadas,
   buscarDireccion,
@@ -10,20 +8,23 @@ import {
 } from "../libs/geoCode";
 import CentroDeportivo from "../components/centroDeportivo";
 
+
 export default function Deporte(props) {
   let { deporte } = useParams();
   const [radio, setRadio] = useState(10);
   const [direccionResultados, setDireccionResultados] = useState("");
   const [listadoCentros, setlistadoCentros] = useState([]);
-  // const [coordenadasBusqueda, setcoordenadasBusqueda] = useState({
-  //   lat: 0,
-  //   lon: 0,
-  // });
-  // const [centrosDeportivos, setCentrosDeportivos] = useState([{}]);
 
-  const [fields, handleFieldChange] = useFormFields({
+  const [fields, setFields] = useState({
     direccion: "",
   });
+
+  const handleFieldChange = (event) => {
+    setFields({
+      ...fields,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   async function loadCentros() {
     //try {
@@ -47,6 +48,38 @@ export default function Deporte(props) {
               "Pistas de Tenis y Pádel del Parque del Oeste",
             telefono: "+34985273721",
             uniqueID: "135456ds5342-fsdfds31",
+            vestuarios: true,
+          },
+          {
+            coordenadas: "43.3975570236998, -5.815577055830056",
+            deportes: ["Pádel"],
+            direccion: {
+              localidad: "Lugones",
+              codigoPostal: "33420",
+              provincia: "Asturias",
+              calle: "Polígono Peñones, 11",
+            },
+            fotoPortada:
+              "https://reservadeportes.s3.amazonaws.com/dev/media/centrosDeportivos/135456ds5342-456fd54s6fd_Drive+P%C3%A1del/fotoPortada.jpg",
+            nombreCentroDeportivo: "Drive Pádel",
+            telefono: "+34985267977",
+            uniqueID: "135456ds5342-456fd54s6fd",
+            vestuarios: true,
+          },
+          {
+            coordenadas: "43.3975570236998, -5.815577055830056",
+            deportes: ["Pádel"],
+            direccion: {
+              localidad: "Lugones",
+              codigoPostal: "33420",
+              provincia: "Asturias",
+              calle: "Polígono Peñones, 11",
+            },
+            fotoPortada:
+              "https://reservadeportes.s3.amazonaws.com/dev/media/centrosDeportivos/135456ds5342-456fd54s6fd_Drive+P%C3%A1del/fotoPortada.jpg",
+            nombreCentroDeportivo: "Drive Pádel",
+            telefono: "+34985267977",
+            uniqueID: "135456ds5342-456fd54s6fd",
             vestuarios: true,
           },
           {
@@ -119,7 +152,7 @@ export default function Deporte(props) {
             );
         }
       }
-      if (tarjetas.length > 0) return <ul>{tarjetas}</ul>;
+      if (tarjetas.length > 0) return tarjetas;
       else
         return (
           <p>
@@ -136,59 +169,54 @@ export default function Deporte(props) {
     <div>
       <h1>Localizaciones</h1>
       <h2>{deporte}</h2>
-      <Form
+      <form
         className="direccion"
         autoComplete="off"
-        onSubmit={handleSubmitAddress}
+        onSubmit={(e) => {
+          handleSubmitAddress(e);
+        }}
       >
-        <Row>
-          <Form.Group as={Row} controlId="direccion">
-            <Form.Label column sm={2}>
-              Dirección
-            </Form.Label>
-            <Col sm={4}>
-              <Form.Control
-                autoFocus
-                placeholder="Introducir dirección"
-                value={fields.direccion}
-                onChange={(e) => {
-                  handleFieldChange(e);
+        <div className="row">
+          <label className="col-sm-3 col-md-2 col-form-label">Dirección</label>
+          <div className="col-sm-5">
+            <input
+              autoFocus
+              className="form-control"
+              placeholder="Dirección"
+              name="direccion"
+              onChange={handleFieldChange}
+            ></input>
+          </div>
+          <label className="col-sm-4">{direccionResultados}</label>
+        </div>
+        <div className="row">
+          <button className="col-sm-2 mt-5 btn btn-warning" type="submit">
+            Buscar
+          </button>
+        </div>
+
+        {direccionResultados !== "" &&
+          direccionResultados !== "Buscando..." &&
+          direccionResultados !== "No se ha encontrado" && (
+            <div className="row mt-5">
+              <label className="col-md-3 col-sm-4 ">
+                Radio de busqueda: {radio} km
+              </label>
+              <input
+                className="col-sm-6"
+                min="1"
+                max="50"
+                defaultValue="10"
+                type="range"
+                onChange={(event) => {
+                  setRadio(event.target.value);
                 }}
               />
-            </Col>
-            <Form.Label column sm={6}>
-              {direccionResultados}
-            </Form.Label>
-          </Form.Group>
-        </Row>
-        <Row>
-          <Button variant="warning" type="submit" text="hola">
-            Buscar
-          </Button>
-        </Row>
-        <Row>
-          <Col sm={6}>
-            {direccionResultados !== "" &&
-              direccionResultados !== "Buscando..." &&
-              direccionResultados !== "No se ha encontrado" && (
-                <Form.Group className="rangoBusqueda">
-                  <Form.Label>Radio de busqueda: {radio} km</Form.Label>
-                  <Form.Control
-                    min="1"
-                    max="50"
-                    defaultValue="10"
-                    type="range"
-                    onChange={(event) => {
-                      setRadio(event.target.value);
-                    }}
-                  />
-                </Form.Group>
-              )}
-          </Col>
-        </Row>
-      </Form>
-      {direccionResultados && <h2>Resultados</h2>}
-      {renderCentros(listadoCentros)}
+            </div>
+          )}
+      </form>
+      {direccionResultados && <h2 className="mt-4">Resultados</h2>}
+      <div className="row">{renderCentros(listadoCentros)}</div>
     </div>
   );
 }

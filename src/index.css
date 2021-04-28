@@ -3,5 +3,5 @@ body,
 #root,
 .App {
   height: 100%;
-  min-width: 480px;
+  /* min-width: 480px; */
 }

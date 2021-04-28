@@ -67,8 +67,6 @@ export default function Login(email) {
           />
         </Form.Group>
         <LoaderButton
-          block
-          size="lg"
           variant="warning"
           type="submit"
           isLoading={isLoading}

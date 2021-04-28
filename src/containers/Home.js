@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import { Button, Container, Row } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { useAppContext } from "../libs/contextLib";
 import Deporte from "../components/Deporte";
 import iconoPadel from "../assets/img/iconosDeportes/padel.png";
@@ -40,12 +40,16 @@ export default function Home() {
         <h1>Deportes</h1>
         <h5>Escoge el deporte para el que quieres reservar</h5>
         <Container className="listadoDeportes">
-          <Row>
+          <div className="row">
             <Deporte deporte="Pádel" iconoDeporte={iconoPadel} />
             <Deporte deporte="Fútbol 7" iconoDeporte={iconoFutbol} />
             <Deporte deporte="Fútbol 11" iconoDeporte={iconoFutbol} />
+          </div>
+          <div className="row">
             <Deporte deporte="Fútbol Sala" iconoDeporte={iconoFutbolSala} />
-          </Row>
+            <Deporte deporte="Tenis" iconoDeporte={iconoPadel} />
+            <div className="col-sm"></div>
+          </div>
         </Container>
       </div>
     );
